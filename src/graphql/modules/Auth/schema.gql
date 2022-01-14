@@ -1,0 +1,13 @@
+input UserLoginInput {
+    email: String!
+    password: String!
+}
+
+
+type Query {
+    loadSession:User
+}
+
+type Mutation {
+    login(data: UserLoginInput!): User
+}

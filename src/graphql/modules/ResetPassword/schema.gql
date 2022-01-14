@@ -1,0 +1,13 @@
+type ResetPassword {
+  name: String
+  email: String
+}
+
+input ResetPasswordInput {
+  token: String
+  password: String
+}
+
+type Mutation {
+  resetPassword(data: ResetPasswordInput!): ResetPassword
+}

@@ -1,0 +1,39 @@
+{
+  "name": "bible_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ext js, graphql, gql",
+    "start":"node index.js",
+    "lint": "eslint ./src ./test --ext .ts",
+    "lint:fix": "eslint ./src ./test --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-core": "^3.5.0",
+    "apollo-server-express": "^3.5.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "date-fns": "^2.27.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.7.2",
+    "graphql-tools": "^7.0.5",
+    "graphql-upload": "^13.0.0",
+    "jwt-simple": "^0.5.6",
+    "knex": "^0.95.14",
+    "module-alias": "^2.2.2",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.4.1"
+  }
+}

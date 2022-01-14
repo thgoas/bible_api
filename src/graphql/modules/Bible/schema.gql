@@ -1,0 +1,93 @@
+scalar Date
+
+type Testament {
+  id: Int
+  name: String
+  creation_date: Date
+}
+
+input TestamentInput {
+  name: String
+}
+
+input TestamentFilter {
+  id: Int
+  name: String
+}
+
+type Version {
+  id: Int
+  name: String
+  creation_date: Date
+}
+
+input VersionInput {
+  name: String
+}
+
+input VersionFilter {
+  id: Int
+  name: String
+}
+
+type Books {
+  id: Int
+  testament: Testament
+  position: Int
+  name: String
+  abbreviation: String
+  creation_date: Date
+}
+
+input BooksInput {
+  testament_id: Int
+  position: Int
+  name: String
+  abbreviation: String
+}
+
+input BooksFilter {
+  id: Int
+  testament_id: Int
+  position: Int
+  name: String
+}
+
+type Verse {
+  id: Int
+  version: Version
+  book: Books
+  chapter: Int
+  verse: Int
+  text: String
+  creation_date: Date
+}
+
+input VerseInput {
+  version_id: Int
+  book_id: Int
+  chapter: Int
+  verse: Int
+  text: String
+}
+
+input VerseFilter {
+  id: Int
+  version_id: Int
+  book_id: Int
+  chapter: Int
+  verse: Int
+  text: String
+}
+
+type Query {
+  testaments: [Testament]
+  testament(filter: TestamentFilter!): Testament
+  versions: [Version]
+  version(filter: VersionFilter!): Version
+  books: [Books]
+  book(filter: BooksFilter!): [Books]
+  verses(limit: Int, offset: Int): [Verse]
+  verse(filter: VerseFilter!): [Verse]
+  chapterCount(filter: VerseFilter!): [Verse]
+}

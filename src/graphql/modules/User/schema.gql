@@ -1,0 +1,46 @@
+type User {
+  id: Int
+  name: String
+  email: String
+  active: Boolean
+  password_change: Boolean
+  token: String
+  profiles: [Profile]
+  url: String
+}
+
+input UserInput {
+  name: String
+  email: String
+  password: String
+  active: Boolean
+  password_change: Boolean
+  profiles: [ProfileFilter]
+}
+input UserRegisterInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input UserFilter {
+  id: Int!
+  email: String!
+}
+
+type Query {
+  users: [User]
+  user(filter: UserFilter!): User
+}
+
+type Message {
+  message: String
+}
+
+type Mutation {
+  registerUser(data: UserRegisterInput!): User!
+  newUser(data: UserInput!): User!
+  editUser(filter: UserFilter!, data: UserInput!): User
+  deleteUser(filter: UserFilter!): User
+  deleteAccount(filter: UserFilter!): Message
+}

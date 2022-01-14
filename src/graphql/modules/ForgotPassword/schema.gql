@@ -1,0 +1,10 @@
+type ForgotPassword {
+  message: String
+}
+input ForgotPasswordFilter {
+  email: String
+}
+
+type Mutation {
+  forgotPassword(filter: ForgotPasswordFilter): ForgotPassword
+}

@@ -1,0 +1,21 @@
+type ConfirmAccount {
+  message: String
+}
+
+type ActivateAccount {
+  name: String
+  email: String
+}
+input ConfirmAccountFilter {
+  email: String
+}
+
+input ActivateAccountInput {
+  active: Boolean
+  token: String
+}
+
+type Mutation {
+  confirmAccount(filter: ConfirmAccountFilter): ConfirmAccount
+  activateAccount(data: ActivateAccountInput!): ActivateAccount
+}
