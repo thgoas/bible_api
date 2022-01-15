@@ -6,7 +6,7 @@ exports.up = function (knex, Promise) {
         table.string('password', 60)
         table.boolean('active')
             .notNull().defaultTo(false)
-        table.boolean('delete_Account')
+        table.boolean('delete_account')
             .notNull().defaultTo(false)
         table.timestamp('creation_date')
             .defaultTo(knex.fn.now())

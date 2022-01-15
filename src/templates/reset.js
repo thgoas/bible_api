@@ -11,8 +11,9 @@ const resetTemplate = (token, user) => {
   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; ">
     <tr>
       <td align="center" bgcolor="#EEEEEE" style="padding: 40px 0 30px 0;">
-        <img src="https://horadodevocional.com.br/hora_do_devocional.svg" alt="Hora do Devocional" width="300" height="230" style="display: block;" />
-       </td>
+      <p style="font-family: Arial, sans-serif; font-size: 24px;"><b>Hora do Devocional</b></p>
+
+      </td>
     </tr>
     <tr>
       <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
@@ -72,15 +73,15 @@ const resetTemplate = (token, user) => {
 				 <table border="0" cellpadding="0" cellspacing="0">
 				  <tr>
 				   <td>
-					<a href="http://www.twitter.com/">
+					<!-- <a href="http://www.twitter.com/">
 					 <img src="images/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
-					</a>
+					</a> -->
 				   </td>
 				   <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
 				   <td>
-					<a href="http://www.twitter.com/">
+					<!-- <a href="http://www.twitter.com/">
 					 <img src="images/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
-					</a>
+					</a> -->
 				   </td>
 				  </tr>
 				 </table>

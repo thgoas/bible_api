@@ -16,7 +16,7 @@ module.exports = async ({ req, connection }) => {
 
   let user= null
   let admin = false
-  let delete_account
+  let delete_account = null
 
   if (token) {
     let env = process.env.APP_AUTH_SECRET
