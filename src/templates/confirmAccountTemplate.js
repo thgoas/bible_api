@@ -14,7 +14,7 @@
   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; ">
     <tr>
       <td align="center" bgcolor="#EEEEEE" style="padding: 40px 0 30px 0;">
-        <img src="/public/hora_do_devocional.svg" alt="Criando Mágica de E-mail" width="300" height="230"
+        <img src="https://horadodevocional.com.br/hora_do_devocional.svg" alt="hora do devocional" width="300" height="230"
           style="display: block;" />
       </td>
     </tr>
@@ -41,7 +41,7 @@
 
                   <td align='center' bgcolor="green" height='40' width="150" style="border-radius: 5px; font-family: Arial, sans-serif; font-size: 16px ">
                     <a style="text-decoration: none; color: white; "
-                      href="https://horadodevocional.com.br/confirm_account/${token}">Confirmar</a>
+                      href="https://horadodevocional.com.br/activate_account/${token}">Confirmar</a>
                   </td>
                 </tbody>
               </table>

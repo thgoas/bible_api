@@ -11,7 +11,7 @@ const resetTemplate = (token, user) => {
   <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; ">
     <tr>
       <td align="center" bgcolor="#EEEEEE" style="padding: 40px 0 30px 0;">
-        <img src="/public/hora_do_devocional.svg" alt="Hora do Devocional" width="300" height="230" style="display: block;" />
+        <img src="https://horadodevocional.com.br/hora_do_devocional.svg" alt="Hora do Devocional" width="300" height="230" style="display: block;" />
        </td>
     </tr>
     <tr>

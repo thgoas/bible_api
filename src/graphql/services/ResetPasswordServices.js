@@ -1,8 +1,6 @@
 const UserNotFoundError = require( '../../errors/UserNotFoundError')
 const db = require( '../../db')
-const crypto = require( 'crypto')
 const QueryError = require( '../../errors/QueryError')
-const nodemailer = require( 'nodemailer')
 const bcrypt = require( 'bcrypt-nodejs')
 
 require('dotenv').config()
