@@ -36,7 +36,7 @@ const resetTemplate = (token, user) => {
                  <tbody>
   
                    <td align='center' bgcolor="green" height='40' width="150" style="border-radius: 5px; font-family: Arial, sans-serif; font-size: 16px; ">
-                     <a style="text-decoration: none; color: white; " href="https://horadodevocional.com.br/forgot_password/${token}">Alterar Senha</a>
+                     <a style="text-decoration: none; color: white; " href="https://horadodevocional.com.br/reset_password/${token}">Alterar Senha</a>
                    </td>
                  </tbody>
                </table>

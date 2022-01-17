@@ -6,11 +6,16 @@ const bibleService = require( './BibleServices')
 
 class VerseOfTheDay {
   async verseOfTheDay(filter) {
-    const { book_id, chapter, verse, creation_date, version_id } = filter
-
-    const dateNow = new Date()
+    const { book_id, chapter, verse, creation_date, version_id, date_publication } = filter
+    const now = new Date()
+    let date
+    if(date_publication === undefined || date_publication === ''){
+     date = now
+    } else {
+      date = date_publication
+    }
     const data = await db('bible_verse_of_the_day')
-      .where({ date_publication: dateNow })
+      .where({ date_publication: date })
       .orderBy('creation_date', 'desc')
       .first()
 
@@ -25,6 +30,8 @@ class VerseOfTheDay {
   }
 
   async newVerseOfTheDay(data) {
+
+
     const [id] = await db('bible_verse_of_the_day').insert(data).returning('id')
 
     return db('bible_verse_of_the_day').where({ id }).first()

@@ -2,16 +2,23 @@ type VerseOfTheDay {
   id: Int
   book_id: Int
   chapter: Int
-  verse: Int
+  first_verse: Int
+  end_verse: Int
   user: User
+  publication: Boolean
   creation_date: Date
+  date_publication:Date
 }
 
 input VerseOfTheDayInput {
   book_id: Int
   chapter: Int
-  verse: Int
+  first_verse: Int
+  end_verse: Int
+  publication: Boolean
   user_id: Int
+  date_publication: Date
+
 }
 
 input VerseOfTheDayFilter {
@@ -20,6 +27,8 @@ input VerseOfTheDayFilter {
   chapter: Int
   verse: Int
   creation_date: String
+  date_publication: Date
+  publication: Boolean
 }
 
 type Query {
