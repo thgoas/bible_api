@@ -6,6 +6,8 @@ const NoPermissionError = require ( '../../errors/NoPermissionError')
 const crypto = require ( 'crypto')
 const UserServices = require ( './UserServices')
 
+const path = require('path')
+
 class UploadServices {
   async singleUpload(filter, file) {
     const { createReadStream, filename, mimetype, encoding } = await file
@@ -27,13 +29,15 @@ class UploadServices {
 
     const nameFile = `${Date.now()}_${token}${extension}`
 
+    console.log(path.join(__dirname,'..','..','..', '/uploads'))
+
     const lastUrl = await db('image_url')
       .where({ user_id: user.id })
       .delete()
       .returning('*')
     if (lastUrl.length > 0) {
       require('fs').unlink(
-        `./uploads/${lastUrl[0].file_name}`,
+        `${path.join(__dirname,'..','..','..', '/uploads')}/${lastUrl[0].file_name}`,
         function (err) {
           console.log('Unlink Error', err)
         }
@@ -42,7 +46,7 @@ class UploadServices {
 
     const stream = createReadStream()
 
-    const out = require('fs').createWriteStream(`./uploads/${nameFile}`)
+    const out = require('fs').createWriteStream(`${path.join(__dirname,'..', '..','..','/uploads')}/${nameFile}`)
     stream.pipe(out)
     await finished(out)
 

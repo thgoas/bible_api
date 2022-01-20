@@ -23,7 +23,7 @@ async function startApolloServer(typeDefs, resolvers) {
     await server.start()
 
 
-  app.use(express.static('public'))
+  // app.use(express.static('public'))
   app.use(express.static('uploads'))
   app.use(graphqlUploadExpress())
   server.applyMiddleware({ app })
