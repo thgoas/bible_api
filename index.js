@@ -31,10 +31,9 @@ async function startApolloServer(typeDefs, resolvers) {
       next();
   })
 
-  app.use(express.json({limit: '25mb'}));
-  app.use(express.urlencoded({limit: '25mb', extended: true}))
+  
   app.use(express.static('uploads'))
-  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }))
+  app.use(graphqlUploadExpress())
   server.applyMiddleware({ app })
   await new Promise ((resolve) =>
     httpServer.listen({ port: 4000 }, resolve)
