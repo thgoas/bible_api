@@ -34,7 +34,7 @@ async function startApolloServer(typeDefs, resolvers) {
       next();
   })
 
-
+  app.use(bodyParser({limit: '50mb'}))
   app.use(express.static('uploads'))
   app.use(graphqlUploadExpress())
   server.applyMiddleware({ app })
