@@ -3,6 +3,7 @@ const { ApolloServer } = require('apollo-server-express')
 const { ApolloServerPluginDrainHttpServer }  = require('apollo-server-core')
 const { graphqlUploadExpress } = require('graphql-upload')
 const http = require('http')
+const cors = require('cors')
 require('dotenv').config()
 
 const {typeDefs, resolvers} = require('./src/graphql')
@@ -24,6 +25,16 @@ async function startApolloServer(typeDefs, resolvers) {
 
 
   // app.use(express.static('public'))
+  app.use((req, res, next) => {
+    //Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
+      res.header("Access-Control-Allow-Origin", "*");
+    //Quais são os métodos que a conexão pode realizar na API
+      res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+      app.use(cors());
+      next();
+  })
+
+
   app.use(express.static('uploads'))
   app.use(graphqlUploadExpress())
   server.applyMiddleware({ app })

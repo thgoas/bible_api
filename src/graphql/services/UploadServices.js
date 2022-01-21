@@ -29,7 +29,6 @@ class UploadServices {
 
     const nameFile = `${Date.now()}_${token}${extension}`
 
-    console.log(path.join(__dirname,'..','..','..', '/uploads'))
 
     const lastUrl = await db('image_url')
       .where({ user_id: user.id })
