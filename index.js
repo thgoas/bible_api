@@ -24,11 +24,8 @@ async function startApolloServer(typeDefs, resolvers) {
     await server.start()
 
 
-  // app.use(express.static('public'))
   app.use((req, res, next) => {
-    //Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
       res.header("Access-Control-Allow-Origin", "*");
-    //Quais são os métodos que a conexão pode realizar na API
       res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
       app.use(cors());
       next();
@@ -37,7 +34,7 @@ async function startApolloServer(typeDefs, resolvers) {
   app.use(express.json({limit: '25mb'}));
   app.use(express.urlencoded({limit: '25mb', extended: true}))
   app.use(express.static('uploads'))
-  app.use(graphqlUploadExpress())
+  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }))
   server.applyMiddleware({ app })
   await new Promise ((resolve) =>
     httpServer.listen({ port: 4000 }, resolve)
