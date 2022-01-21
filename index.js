@@ -24,12 +24,20 @@ async function startApolloServer(typeDefs, resolvers) {
     await server.start()
 
 
-  app.use((req, res, next) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
-      app.use(cors());
-      next();
-  })
+  // app.use((req, res, next) => {
+  //     res.header("Access-Control-Allow-Origin", "*");
+  //     res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+  //     app.use(cors());
+  //     next();
+  // })
+
+  const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ }
+ 
+ app.use(cors(corsOptions))
 
   
   app.use(express.static('uploads'))
