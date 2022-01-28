@@ -93,6 +93,28 @@ class BibleServices {
     }
     return null
   }
+  async versesCount(filter, limit, offset) {
+    const {
+      id,
+      version_id,
+      book_id,
+      chapter,
+      verse,
+      text,
+      first_verse,
+      end_verse
+    } = filter
+
+    if (version_id && book_id && chapter) {
+      return await db('bible_verses')
+        .distinct('verse')
+        .where({ version_id })
+        .andWhere({ book_id })
+        .andWhere({chapter})
+        .returning('verse')
+    }
+    return null
+  }
 
   async verse(filter, limit, offset) {
     const {

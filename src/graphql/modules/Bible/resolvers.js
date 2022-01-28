@@ -43,6 +43,13 @@ module.exports = {
       { dataSources }
     ) {
       return await dataSources.BibleServices.chapterCount(filter, limit, offset)
+    },
+    async versesCount(
+      _,
+      { filter, limit, offset },
+      { dataSources }
+    ) {
+      return await dataSources.BibleServices.versesCount(filter, limit, offset)
     }
   }
 }

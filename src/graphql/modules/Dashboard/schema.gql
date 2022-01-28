@@ -1,0 +1,11 @@
+type Dashboard {
+    usersCountTotal: Int
+    usersCountActive: Int
+    usersCountDeleteAccount: Int
+    devotionalCount: Int
+    verseOfDayCount: Int
+}
+
+type Query {
+    dashboard: Dashboard
+}

@@ -1,13 +1,18 @@
 type VerseOfTheDay {
   id: Int
-  book_id: Int
+  book: Books
   chapter: Int
   first_verse: Int
   end_verse: Int
+  reflection: String
+  author: String
   user: User
   publication: Boolean
   creation_date: Date
   date_publication:Date
+
+  verse: [Verse]
+  
 }
 
 input VerseOfTheDayInput {
@@ -17,11 +22,14 @@ input VerseOfTheDayInput {
   end_verse: Int
   publication: Boolean
   user_id: Int
+  reflection: String
+  author: String
   date_publication: Date
 
 }
 
 input VerseOfTheDayFilter {
+  id: Int
   version_id: Int
   book_id: Int
   chapter: Int
@@ -32,15 +40,16 @@ input VerseOfTheDayFilter {
 }
 
 type Query {
-  verseOfTheDay(filter: VerseOfTheDayFilter!): [Verse]
-  #   versesOfTheDays: [VerseOfTheDay]
+  verseOfTheDay(filter: VerseOfTheDayFilter!): VerseOfTheDay
+  verseOfTheDayEdit(filter: VerseOfTheDayFilter!): VerseOfTheDay
+  versesOfTheDays: [VerseOfTheDay]
 }
 
 type Mutation {
   newVerseOfTheDay(data: VerseOfTheDayInput!): VerseOfTheDay!
-  #   editVerseOfTheDay(
-  #     filter: VerseOfTheDayFilter!
-  #     data: VerseOfTheDayInput!
-  #   ): verseOfTheDay!
-  #   deleteVerseOfTheDay(filter: VerseOfTheDayFilter!): verseOfTheDay
+    editVerseOfTheDay(
+      filter: VerseOfTheDayFilter!
+      data: VerseOfTheDayInput!
+    ): VerseOfTheDay!
+    deleteVerseOfTheDay(filter: VerseOfTheDayFilter!): VerseOfTheDay
 }

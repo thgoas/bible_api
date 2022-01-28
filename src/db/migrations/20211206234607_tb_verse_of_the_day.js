@@ -7,6 +7,8 @@ exports.up = function (knex, Promise) {
         table.integer('first_verse').notNull()
         table.integer('end_verse').notNull()
         table.integer('user_id').notNull()
+        table.text('reflection')
+        table.string('author', 50)
         table.boolean('publication').notNull()
         table.date('date_publication').notNull()
         table.timestamp('creation_date')

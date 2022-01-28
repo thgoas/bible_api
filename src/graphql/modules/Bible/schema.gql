@@ -78,6 +78,8 @@ input VerseFilter {
   chapter: Int
   verse: Int
   text: String
+  first_verse: Int
+  end_verse: Int
 }
 
 type Query {
@@ -90,4 +92,5 @@ type Query {
   verses(limit: Int, offset: Int): [Verse]
   verse(filter: VerseFilter!): [Verse]
   chapterCount(filter: VerseFilter!): [Verse]
+  versesCount(filter: VerseFilter!): [Verse]
 }
