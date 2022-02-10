@@ -85,12 +85,13 @@ class BibleServices {
     } = filter
 
     if (version_id && book_id) {
-      return await db('bible_verses')
+      const resp = await db('bible_verses')
         .distinct('chapter')
         .where({ version_id })
         .andWhere({ book_id })
-        .orderBy('id')
         .returning('chapter')
+
+      return resp.sort((a, b) => a.chapter - b.chapter)
     }
     return null
   }
@@ -107,13 +108,13 @@ class BibleServices {
     } = filter
 
     if (version_id && book_id && chapter) {
-      return await db('bible_verses')
+      const resp = await db('bible_verses')
         .distinct('verse')
         .where({ version_id })
         .andWhere({ book_id })
         .andWhere({chapter})
-        .orderBy('id')
         .returning('verse')
+        return resp.sort((a, b) => a.verse - b.verse)
     }
     return null
   }
