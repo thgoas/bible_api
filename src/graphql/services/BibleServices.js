@@ -89,6 +89,7 @@ class BibleServices {
         .distinct('chapter')
         .where({ version_id })
         .andWhere({ book_id })
+        .orderBy('id')
         .returning('chapter')
     }
     return null
@@ -111,6 +112,7 @@ class BibleServices {
         .where({ version_id })
         .andWhere({ book_id })
         .andWhere({chapter})
+        .orderBy('id')
         .returning('verse')
     }
     return null
