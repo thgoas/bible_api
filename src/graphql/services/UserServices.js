@@ -17,8 +17,8 @@ class UserServices {
     const [url] = await db('image_url')
       .where({ user_id: user.id })
       .returning('*')
-
-    return url ? url.url : null
+    const baseUrl = process.env.APP_BASE_URL + '/' + url.filename
+    return url ? baseUrl : null
   }
   profiles(user) {
     return db('profiles')

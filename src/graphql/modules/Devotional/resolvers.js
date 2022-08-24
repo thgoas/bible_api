@@ -4,9 +4,6 @@ module.exports ={
     async user(devotional, _, { dataSources }) {
       return await dataSources.DevotionalServices.user(devotional)
     },
-    async book(devotional, _, { dataSources }) {
-      return await dataSources.DevotionalServices.book(devotional)
-    },
     async amount(devotional, _, { dataSources }) {
       return await dataSources.DevotionalServices.amount(devotional)
     },

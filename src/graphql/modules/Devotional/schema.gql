@@ -8,9 +8,6 @@ type Devotional {
   sins_to_avoid: String
   personal_notes: String
   user: User
-  book: Books
-  chapter: Int
-  verses: String
   creation_date: Date
   amount: Int
   amount_day: Int
@@ -25,11 +22,9 @@ input DevotionalInput {
   sins_to_avoid: String
   personal_notes: String
   user_id: Int
-  book_id: Int
-  chapter: Int
-  verses: String
   creation_date: Date
 }
+
 
 input DevotionalFilter {
   id: Int

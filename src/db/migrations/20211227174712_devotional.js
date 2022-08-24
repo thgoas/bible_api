@@ -9,10 +9,9 @@ exports.up = function (knex) {
         table.text('personal_applications').notNull()
         table.text('sins_to_avoid').notNull()
         table.text('personal_notes').notNull()
+        table.boolean('publish').notNull()
         table.integer('user_id').notNull()
-        table.integer('book_id').notNull()
-        table.integer('chapter').notNull()
-        table.string('verses').notNull()
+
         table.timestamp('creation_date')
             .defaultTo(knex.fn.now())
 

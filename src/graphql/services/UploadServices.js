@@ -10,6 +10,7 @@ const path = require('path')
 
 class UploadServices {
   async singleUpload(filter, file) {
+    console.log(file)
     const { createReadStream, filename, mimetype, encoding } = await file
     const { id, email } = filter
     if (
@@ -17,7 +18,7 @@ class UploadServices {
       mimetype !== 'image/jpg' &&
       mimetype !== 'image/jpeg'
     ) {
-      throw new QueryError('Extensões suportadas .png, .jpg')
+      throw new QueryError('Arquivo precisa ser .png, .jpg')
     }
 
     const user = await UserServices.user(filter)
@@ -36,7 +37,7 @@ class UploadServices {
       .returning('*')
     if (lastUrl.length > 0) {
       require('fs').unlink(
-        `${path.join(__dirname,'..','..','..', '/uploads')}/${lastUrl[0].file_name}`,
+        `${path.join(__dirname,'..','..','..', '/uploads')}/${lastUrl[0].filename}`,
         function (err) {
           console.log('Unlink Error', err)
         }
@@ -49,10 +50,10 @@ class UploadServices {
     stream.pipe(out)
     await finished(out)
 
-    const url = process.env.APP_BASE_URL + '/' + nameFile
+    // const url = process.env.APP_BASE_URL + '/' + nameFile
 
     const urlResponse = await db('image_url')
-      .insert({ url, user_id: user.id, file_name: nameFile })
+      .insert({user_id: user.id, filename: nameFile, originalname: filename })
       .returning('*')
 
     if (!urlResponse) throw new QueryError('Algo deu errado!')

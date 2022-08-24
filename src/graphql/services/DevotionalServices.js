@@ -31,9 +31,7 @@ class DevotionalServices {
   async user(devotional) {
     return db('users').where({ id: devotional.user_id }).first()
   }
-  async book(devotional) {
-    return db('bible_books').where({ id: devotional.book_id }).first()
-  }
+ 
   async devotional(filter) {
     const { id, user_id, creation_date } = filter
     if (id && user_id) {
@@ -47,13 +45,21 @@ class DevotionalServices {
   }
   async newDevotional(data) {
     const dateNow = new Date()
+   const books = data.books
+    
     try {
       const isReleased = await db('devotional')
         .where({ user_id: data.user_id })
         .andWhereRaw('??::date = ?', ['creation_date', dateNow])
+      console.log(dateNow)
+      console.log(isReleased)
 
       if (isReleased.length < 3) {
+        delete data.books
         const dataResponse = await db('devotional').insert(data).returning('*')
+      
+        
+        
         return dataResponse[0]
       } else {
         throw new NoPermissionError(
